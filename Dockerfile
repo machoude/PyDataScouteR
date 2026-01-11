@@ -13,11 +13,10 @@ RUN apt-get update && apt-get install -y \
 # Install R packages (remotes + DataScouteR dependencies)
 RUN R -e "install.packages(c('remotes', 'dplyr', 'magrittr', 'tibble', 'readODS'))"
 
-# Copy DataScouteR package files (excluding .git and other non-package files)
+# Copy DataScouteR package files (only essential ones)
 COPY DataScouteR/DESCRIPTION DataScouteR/NAMESPACE /tmp/DataScouteR/
 COPY DataScouteR/R /tmp/DataScouteR/R
 COPY DataScouteR/data /tmp/DataScouteR/data
-COPY DataScouteR/man /tmp/DataScouteR/man
 
 # Install DataScouteR package
 RUN R CMD INSTALL /tmp/DataScouteR
