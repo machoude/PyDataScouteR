@@ -10,9 +10,12 @@ RUN apt-get update && apt-get install -y \
     libxml2-dev \
     && rm -rf /var/lib/apt/lists/*
 
-# Install R packages
+# Install R remotes package
 RUN R -e "install.packages('remotes')"
-RUN R -e "remotes::install_github('machoude/DataScouteR', subdir = 'DataScouteR')"
+
+# Copy DataScouteR source and install
+COPY DataScouteR /tmp/DataScouteR
+RUN R CMD INSTALL /tmp/DataScouteR
 
 # Set working directory
 WORKDIR /app
