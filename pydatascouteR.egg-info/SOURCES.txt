@@ -1,0 +1,9 @@
+setup.py
+pydatascouteR/__init__.py
+pydatascouteR/client.py
+pydatascouteR/test_client.py
+pydatascouteR.egg-info/PKG-INFO
+pydatascouteR.egg-info/SOURCES.txt
+pydatascouteR.egg-info/dependency_links.txt
+pydatascouteR.egg-info/requires.txt
+pydatascouteR.egg-info/top_level.txt
