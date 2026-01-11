@@ -10,13 +10,13 @@ RUN apt-get update && apt-get install -y \
     libxml2-dev \
     && rm -rf /var/lib/apt/lists/*
 
-# Install R remotes package
-RUN R -e "install.packages('remotes')"
+# Install R packages (remotes + DataScouteR dependencies)
+RUN R -e "install.packages(c('remotes', 'dplyr', 'magrittr', 'tibble'))"
 
 # Copy entire DataScouteR repo
 COPY DataScouteR /tmp/DataScouteR
 
-# Install from the root (where DESCRIPTION file is)
+# Install DataScouteR package
 RUN R CMD INSTALL /tmp/DataScouteR
 
 # Set working directory
