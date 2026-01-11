@@ -13,9 +13,9 @@ RUN apt-get update && apt-get install -y \
 # Install R remotes package
 RUN R -e "install.packages('remotes')"
 
-# Copy DataScouteR source and install
+# Copy DataScouteR source and install from subdirectory
 COPY DataScouteR /tmp/DataScouteR
-RUN R CMD INSTALL /tmp/DataScouteR
+RUN R CMD INSTALL /tmp/DataScouteR/DataScouteR
 
 # Set working directory
 WORKDIR /app
